@@ -1,1 +1,0 @@
-<!--Use this file as layout of your hole APP-->

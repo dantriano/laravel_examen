@@ -38,7 +38,7 @@ class ProductController extends Controller
     /**
      * Method to list the products filtered by stars
      */
-    public function stars(Request $request,$id)
+    public function stars()
     {
 
     }
