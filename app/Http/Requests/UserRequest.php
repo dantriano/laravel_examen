@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\JsonResponse;
 
 class UserRequest extends FormRequest
 {
@@ -14,8 +15,7 @@ class UserRequest extends FormRequest
      */
     public function authorize()
     {
-        if(Auth)
-            return true;
+        return true;
     }
 
     /**
@@ -25,30 +25,24 @@ class UserRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'name'=>'required|max:10',
-            'email'=>'required'
+        return [   
         ];
     }
 
     public function messages()
     {
         return [
-            'name.required'=>'Por favor introduce un nombre',
-            'name.max'=>'Ese nombre es demasiado largo',
-            'username.required' => 'El :attribute es obligatorio!!!',
-            'username.min' => 'El :attribute debe ser mínimo 5'
+           
         ];
     }
     public function attributes()
     {
         return [
-            'username' => 'nombre de usuario',
         ];
     }
     /**
      *  AJAX Response 
-     *
+     */
     public function response(array $errors)
     {
         if ($this->expectsJson()) {
@@ -57,5 +51,5 @@ class UserRequest extends FormRequest
         return $this->redirector->to($this->getRedirectUrl())
             ->withInput($this->except($this->dontFlash))
             ->withErrors($errors, $this->errorBag);
-    }*/
+    }
 }

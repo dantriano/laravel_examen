@@ -8,6 +8,7 @@ class ProductController extends Controller
    
     private $products;
     private $_filters;
+    private $showBanner=false;
 
     public function __construct()
     {
@@ -25,6 +26,8 @@ class ProductController extends Controller
      */
     public function all()
     {   
+        $this->showBanner=true;
+        return view('examenViews/products');
     }
 
     /**
