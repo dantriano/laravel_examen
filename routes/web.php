@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', 'ProductController@all');
+Route::get('/category/{id?}', 'ProductController@category');
+Route::post('/rating', 'ProductController@rating');
 
 
 Route::get('/register', function () {

@@ -6,5 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    //
+    public function scopeCategory($query,$input){
+        return $query->where('category','=',$input);
+    }
+    public function scopeRating($query,$input){
+        return $query->whereIn('rating',$input);
+    }
 }

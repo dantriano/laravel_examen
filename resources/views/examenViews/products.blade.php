@@ -5,28 +5,25 @@
 
   <div class="col-lg-3">
 
-    <h1 class="my-4">Shop Name</h1>
+    <h1 class="my-4">Lego Shop</h1>
     <div class="list-group">
-      <a href="#" class="list-group-item">Category 1</a>
-      <a href="#" class="list-group-item">Category 2</a>
-      <a href="#" class="list-group-item">Category 3</a>
+      @foreach ($filters->category as $key=>$category)
+      <a href="{{url('category', [$key])}}" class="list-group-item">{{$category}}</a>
+      @endforeach
     </div>
 
-
-    <form>
+    <form method="POST" action={{ action('ProductController@rating') }}>
+      <input type="hidden" name="category" value="{{Request()->id}}">
+      {{ csrf_field() }}
       <div class="form-group">
+        @foreach ($filters->stars as $key=>$star)
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-          <label class="form-check-label" for="defaultCheck1">
-            1 estrella
+          <input name="stars[]" class="form-check-input" type="checkbox" value="{{$key}}" id="defaultCheck_{{$key}}">
+          <label class="form-check-label" for="defaultCheck_{{$key}}">
+            {{$star}}
           </label>
         </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-          <label class="form-check-label" for="defaultCheck">
-            2 estrellas
-          </label>
-        </div>
+        @endforeach
         <!-- Poner 5 checkbox de 1 a 5 estrellas-->
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
@@ -39,10 +36,9 @@
     @if($showBanner)
     <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
       <ol class="carousel-indicators">
-        @for ($i = 0; $i < sizeof($products); $i++) 
-        <li data-target="#carouselExampleIndicators" data-slide-to="0">
-        </li>
-        @endfor
+        @for ($i = 0; $i < sizeof($products); $i++) <li data-target="#carouselExampleIndicators" data-slide-to="0">
+          </li>
+          @endfor
       </ol>
       <div class="carousel-inner" role="listbox">
         @foreach ($products as $key =>$product)
