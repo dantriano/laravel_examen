@@ -66,7 +66,7 @@ class ProductController extends Controller
     public function showProducts()
     {
         //Load the same view for all the methods
-        return view('examenViews/products')
+        return view('productos/products')
             ->with('showBanner', $this->showBanner)
             ->with('filters', $this->_filters)
             ->with('products', $this->products);

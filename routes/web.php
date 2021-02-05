@@ -16,12 +16,8 @@ Route::get('/', 'ProductController@all');
 Route::get('/category/{id?}', 'ProductController@category');
 Route::post('/rating', 'ProductController@rating');
 
-
-Route::get('/register', function () {
-    return view('register');
-})->name('register');;
-
-Route::get('/login', function () {
-    return view('login');
-})->name('login');;
-//Auth::routes();
+Route::get('/compra', 'CompraController@main');
+Route::get('/compra/resumen', 'CompraController@resumen');
+Route::get('/compra/envio', 'CompraController@envio');
+Route::post('/compra/envio', 'CompraController@verificarEnvio');
+Route::get('/compra/confirmar', 'CompraController@confirmar');

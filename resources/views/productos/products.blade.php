@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends((Request::ajax()) ? 'layouts.ajax' : 'layouts.app')
 
 @section('content')
 <div class="row">
@@ -73,8 +73,8 @@
             <p class="card-text">{{$product->description}}</p>
           </div>
           <div class="card-footer">
-            <small class="text-muted">
-              @for ($i = 0; $i < $product->rating; $i++)&#9733;@endfor</small>
+          <select name="qty">@for ($i = 1; $i < 10; $i++)  <option value="{{$i}}">{{$i}}</option>@endfor</select>
+          <button class="btn btn-primary">Comprar</button>
           </div>
         </div>
       </div>
@@ -88,4 +88,9 @@
   <!-- /.col-lg-9 -->
 
 </div>
+
+<script>
+    //Escribir aqui el codigo necesario de AXIOS
+    
+</script>
 @endsection

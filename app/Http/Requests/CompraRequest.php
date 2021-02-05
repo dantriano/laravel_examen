@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\JsonResponse;
 
-class UserRequest extends FormRequest
+class CompraRequest extends FormRequest
 {
     //protected $redirectRoute = 'post.create' //ruta definida en alguno de los archivos de la carpeta routes
     /**
