@@ -17,8 +17,9 @@ class Products extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->string('description');
-            $table->integer('category');
-            $table->float('price');
+            $table->integer('category')->nullable();
+            $table->integer('rating')->default('1');
+            $table->float('price')->default('0.00');
             $table->string('image')->nullable();
             $table->rememberToken();
             $table->timestamps();
