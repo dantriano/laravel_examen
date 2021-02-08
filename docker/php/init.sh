@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+#set -e
 
 apt-get update && apt-get install -y \
     build-essential \
@@ -38,5 +38,13 @@ curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin
 
 #chmod o+r /etc/resolv.conf
 #echo "nameserver 8.8.8.8" >> /etc/resolv.conf 
-#npm run dev
+composer install
+npm install
+
+php artisan migrate:install
+php artisan migrate
+php artisan migrate --seed
+
+chmod -R 777 storage
+
 php-fpm
