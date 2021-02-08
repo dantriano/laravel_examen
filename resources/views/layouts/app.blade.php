@@ -34,7 +34,7 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Numero de produtos: 0
+                        <a class="nav-link" href="#">Numero de produtos: <span id="carrito">0</span>
                         </a>
                         <a class="nav-link" href="{{ url('/compra') }}">Finalizar compra
                         </a>

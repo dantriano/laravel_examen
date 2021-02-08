@@ -73,8 +73,11 @@
             <p class="card-text">{{$product->description}}</p>
           </div>
           <div class="card-footer">
+          <form class="addCart">
+          <input type="hidden" name="prod_id" value="{{$product->id}}">
           <select name="qty">@for ($i = 1; $i < 10; $i++)  <option value="{{$i}}">{{$i}}</option>@endfor</select>
-          <button class="btn btn-primary">Comprar</button>
+          <button type="submit" class="btn btn-primary">Comprar</button>
+          </form>
           </div>
         </div>
       </div>
@@ -91,6 +94,14 @@
 
 <script>
     //Escribir aqui el codigo necesario de AXIOS
-    
+    //Al hacer click se obtiene la info del producto
+    $('.addCart').submit(function(e){
+      e.preventDefault();
+      var data = $(this).serialize()
+      console.log(data)
+      
+      //Sustituir 0 por la cantidad que tengamos en el carrito
+      $('#carrito').html(0);
+    })
 </script>
 @endsection

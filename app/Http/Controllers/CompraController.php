@@ -63,8 +63,11 @@ class CompraController extends Controller
             ]
         ];
         //Dummy: hay que cambiar la info por la información guardada en session
-        $shipping =  [
-            'name' => 'Pedro', 'surname' => 'Domingues'
+        $shipping =   (object)[
+            'name' => 'Pedro', 
+            'mail' => 'asds|@asda.es',
+            'address' => 'asds|@asda.es',
+            'image' => 'lego1.jpeg',
         ];
         return view('compra/confirmar')->with('products', $products)->with('shipping', $shipping);
     }

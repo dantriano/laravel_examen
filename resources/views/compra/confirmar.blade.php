@@ -32,9 +32,11 @@ $total+=$product->price
 
       <div class="card-body">
         <ul>
+        <li><img src="{{ asset('img/users/'.$shipping->image) }}" ></li>
         @foreach($shipping as $key=>$info)
         <li>{{$key}} {{$info}}</li>
         @endforeach
+
         </ul>
       </div>
     </div>
